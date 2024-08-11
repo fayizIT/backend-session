@@ -27,7 +27,7 @@ class CustomUser(AbstractBaseUser):
     Role_Choices = [
       ("collector","Collector"),
       ("user","User"),
-      ("staff","Staff")
+      ("staff","Staff"),
       ("superser","SuperUser")
     ]
     email = models.EmailField(max_length=255,unique=True)

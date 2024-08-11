@@ -6,8 +6,8 @@ class CampDetails(models.Model):
    
     camp_name = models.CharField(max_length=220)
     camp_status = models.BooleanField(default=False)
-    camp_create_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    camp_approved_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    camp_create_by = models.ForeignKey(CustomUser, related_name= 'camp_create_user', on_delete=models.CASCADE)
+    camp_approved_by = models.ForeignKey(CustomUser, related_name= 'camp_approved_user', on_delete=models.CASCADE)
     address = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
     district = models.CharField(max_length=255)
@@ -50,9 +50,9 @@ class Product(models.Model):
 class Received_items(models.Model):
 
     received_item_name = models.CharField(max_length=220)
-    sent_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    receive_approved_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    received_camp_name = models.ForeignKey(CampDetails,on_delete=models.CASCADE)
+    sent_by = models.ForeignKey(CustomUser,related_name='sender', on_delete=models.CASCADE)
+    receive_approved_by = models.ForeignKey(CustomUser,related_name='item_approved_admin', on_delete=models.CASCADE)
+    received_camp_name = models.ForeignKey(CampDetails,related_name='items_received_camp', on_delete=models.CASCADE)
     quantity = models.IntegerField()
     quantity_type = models.CharField(max_length=20)
     received_date = models.DateField()
