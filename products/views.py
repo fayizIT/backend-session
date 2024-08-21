@@ -14,7 +14,7 @@ class AddCamp(APIView):
             data["camp_create_by"] = camp_admin.id
             serializer = AddCampSerializers(data)
             if serializer.data_is_Valid():
-                serializer.save()
+                serializer.save()   
                 return Response(serializer.data,status=status.status.HTTP_201_CREATED)
             
             else:

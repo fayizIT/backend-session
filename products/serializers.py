@@ -6,3 +6,6 @@ class AddCampSerializers(serializers.ModelSerializer):
     class Meta:
         model = CampDetails
         fields = "__all__"
+
+class Hello:
+    print("hello")
