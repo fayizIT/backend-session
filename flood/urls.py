@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-# latest update
+# latest update on one second
 from django.contrib import admin
 from django.urls import path
 from rest_framework_simplejwt.views import (
